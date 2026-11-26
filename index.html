@@ -318,7 +318,7 @@ button{-webkit-tap-highlight-color:transparent}
       </nav>
       <div class="sidebar-bottom">
         <div class="help-card" hidden><div class="help-icon">?</div><strong>Precisa de ajuda?</strong><p>Organize sua assistência com mais facilidade.</p><button id="help-btn">Ver dicas <span>↗</span></button></div>
-        <div class="profile"><div class="avatar">WF</div><div><strong>Administrador</strong><small>Gestor da assistência</small></div><span class="dots">•••</span></div>
+        <div class="profile"><div class="avatar">OS</div><div><strong>Administrador</strong><small>Gestor da assistência</small></div><span class="dots">•••</span></div>
       </div>
     </aside>
 
@@ -399,7 +399,7 @@ button{-webkit-tap-highlight-color:transparent}
               <h2>Instale e acesse pelo celular</h2>
               <p>Use o QR Code para abrir o OS. No Chrome do computador, abra o menu ⋮ e procure “Transmitir, salvar e compartilhar” → “Instalar página como app”. No Android, abra o menu ⋮ e toque em “Instalar app” ou “Adicionar à tela inicial”. No iPhone, toque em Compartilhar → “Adicionar à Tela de Início”.</p>
               <canvas id="wfroz-qr-canvas" class="wfroz-qr-image" width="290" height="290" role="img" aria-label="QR Code do OS"></canvas>
-              <p class="wfroz-site-address"><a href="https://wfroz-os-git-main-wfroz-tecnologia.vercel.app/" target="_blank" rel="noopener">Abrir OS</a></p>
+              <p class="wfroz-site-address"><a href="./" target="_blank" rel="noopener">Abrir OS</a></p>
               <button class="primary-btn" id="wfroz-install-button" type="button">Instalar / como instalar</button>
               <button type="button" class="secondary-btn wfroz-qr-download" id="wfroz-qr-download">Baixar QR Code</button>
               <p class="muted" id="wfroz-install-status" role="status">A instalação aparece quando o navegador e o site atendem aos requisitos de PWA.</p>
@@ -831,8 +831,7 @@ function make(text){
  apply(best);fmt(best);return M}
 window.wfrozQR=make;
 // ---- Interface: desenha no canvas da tela Ajuda ----
-const SITE='https://wfroz-os-git-main-wfroz-tecnologia.vercel.app/';
-function siteUrl(){try{if(/^https?:$/.test(location.protocol)&&!/^(localhost|127\.|\[::1\])/.test(location.hostname))return location.origin+location.pathname.replace(/[^/]*$/,'')}catch{}return SITE}
+function siteUrl(){try{if(/^https?:$/.test(location.protocol)&&!/^(localhost|127\.|\[::1\])/.test(location.hostname))return location.origin+location.pathname.replace(/[^/]*$/,'')}catch{}return location.href.split('#')[0]}
 function draw(){const c=document.getElementById('wfroz-qr-canvas');if(!c)return;const url=siteUrl();let m;try{m=make(url)}catch{return}
  const n=m.length,q=4,s=10,px=(n+q*2)*s;c.width=c.height=px;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,px,px);x.fillStyle='#111';
  for(let y=0;y<n;y++)for(let i=0;i<n;i++)if(m[y][i])x.fillRect((i+q)*s,(y+q)*s,s,s);
