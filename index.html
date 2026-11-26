@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<script id="os-reset-unico">
+// Limpeza unica: apaga dados antigos guardados neste navegador (clientes, tecnicos, ordens, pendencias de sincronizacao).
+(function(){try{var F='os_reset_supabase_novo_v1';if(localStorage.getItem(F))return;
+Object.keys(localStorage).forEach(function(k){if(/^wfroz_/i.test(k))localStorage.removeItem(k)});
+localStorage.setItem(F,'1')}catch(e){}})();
+</script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f8fa">
